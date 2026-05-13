@@ -9,4 +9,26 @@ public class SubmissionChecker {
             return false;
         }
     }
+	
+	public static String updateTaskStatus(boolean uploaded,
+            boolean approved,
+            boolean resubmitRequired) {
+
+			if (uploaded == true) {
+			
+				if (approved == true) {
+					return "Completed";
+				}
+			
+				else if (resubmitRequired == true) {
+					return "Fix and Resubmit";
+				}
+			
+				else {
+					return "Ready to Mark";
+				}
+			}
+			
+				return "Working On It";
+			}
 }
