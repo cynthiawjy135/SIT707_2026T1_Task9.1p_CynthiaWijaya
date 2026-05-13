@@ -9,7 +9,7 @@ import org.junit.Assert;
 public class submissionDueTest {
 
 	 @Test
-	    public void lateSubmissionShouldReturnTrue() {
+	    public void trueLateSubmission() {
 
 	        Assert.assertTrue(
 	            SubmissionChecker.isLate(
@@ -18,9 +18,20 @@ public class submissionDueTest {
 	            )
 	        );
 	    }
+	 
+	 @Test
+	    public void onTimeSubmission() {
+
+	        Assert.assertFalse(
+	            SubmissionChecker.isLate(
+	                "2026-05-09",
+	                "2026-05-10"
+	            )
+	        );
+	    }
 
 	    @Test
-	    public void onTimeSubmissionShouldReturnFalse() {
+	    public void BeforeDueDateSubmission() {
 
 	        Assert.assertFalse(
 	            SubmissionChecker.isLate(
