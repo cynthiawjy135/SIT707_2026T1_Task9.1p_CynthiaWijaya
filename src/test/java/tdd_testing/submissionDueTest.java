@@ -8,41 +8,44 @@ import org.junit.Assert;
 
 public class submissionDueTest {
 
+	//Test for checking late submission is true
 	 @Test
 	    public void trueLateSubmission() {
 
 	        Assert.assertTrue(
 	            SubmissionChecker.isLate(
-	                "2026-05-11",
-	                "2026-05-10"
+	                "2026/05/11",
+	                "2026/05/10"
 	            )
 	        );
 	    }
 	 
+	 //Testing for Checking if it is precisely on the same date of due date
 	 @Test
 	    public void onTimeSubmission() {
 
 	        Assert.assertFalse(
 	            SubmissionChecker.isLate(
-	                "2026-05-09",
-	                "2026-05-10"
+	                "2026/05/09",
+	                "2026/05/10"
 	            )
 	        );
 	    }
-
+	 
+	 	//Testing for checking it if the submission date before the due date
 	    @Test
 	    public void BeforeDueDateSubmission() {
 
 	        Assert.assertFalse(
 	            SubmissionChecker.isLate(
-	                "2026-05-09",
-	                "2026-05-10"
+	                "2026/05/09",
+	                "2026/05/10"
 	            )
 	        );
 	    }
 	    
 	    @Test
-	    public void uploadedTaskShouldBeReadyToMark() {
+	    public void uploadedTaskStatusReadyToMark() {
 
 	        Assert.assertEquals(
 	            "Ready to Mark",
@@ -51,7 +54,7 @@ public class submissionDueTest {
 	    }
 
 	    @Test
-	    public void approvedTaskShouldBeCompleted() {
+	    public void approvedTaskStatusCompleted() {
 
 	        Assert.assertEquals(
 	            "Completed",
@@ -60,7 +63,7 @@ public class submissionDueTest {
 	    }
 
 	    @Test
-	    public void resubmitTaskShouldReturnFixAndResubmit() {
+	    public void resubmitTaskStatusFixAndResubmit() {
 
 	        Assert.assertEquals(
 	            "Fix and Resubmit",
@@ -69,7 +72,7 @@ public class submissionDueTest {
 	    }
 
 	    @Test
-	    public void notUploadedTaskShouldReturnNotWorking() {
+	    public void notUploadedTaskStatusNotWorking() {
 
 	        Assert.assertEquals(
 	            "Working On It",
